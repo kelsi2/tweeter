@@ -1,0 +1,34 @@
+.new-tweet {
+  font-weight: bold;
+}
+
+#tweet-text {
+  border-bottom: 5px solid black;
+  justify-content: left;
+}
+
+textarea {
+  background-color: #f4f1ec;
+  outline: none;
+  overflow: hidden;
+  resize: none;
+  border: none;
+  height: 2em;
+  width: 100%;
+}
+
+.counter {
+  margin-top: 1%;
+  float: right;
+  font-size: x-large;
+  font-family: 'Bungee', cursive;
+}
+
+button {
+  background-color: #4056A1;
+  font-family: 'Bungee', cursive;
+  color: #ffffff;
+  border: 0;
+  height: 40px;
+  width: 100px;
+}
