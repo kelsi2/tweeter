@@ -1,12 +1,3 @@
-.new-tweet {
-  font-weight: bold;
-}
-
-#tweet-text {
-  border-bottom: 5px solid black;
-  justify-content: left;
-}
-
 textarea {
   background-color: #f4f1ec;
   outline: none;
@@ -17,13 +8,6 @@ textarea {
   width: 100%;
 }
 
-.counter {
-  margin-top: 1%;
-  float: right;
-  font-size: x-large;
-  font-family: 'Bungee', cursive;
-}
-
 button {
   background-color: #4056A1;
   font-family: 'Bungee', cursive;
@@ -31,4 +15,24 @@ button {
   border: 0;
   height: 40px;
   width: 100px;
+}
+
+.new-tweet {
+  font-weight: bold;
+}
+
+.counter {
+  margin-top: 1%;
+  float: right;
+  font-size: x-large;
+  font-family: 'Bungee', cursive;
+}
+
+#tweet-text {
+  border-bottom: 5px solid black;
+  justify-content: left;
+}
+
+.negChar {
+  color: #ff0000;
 }

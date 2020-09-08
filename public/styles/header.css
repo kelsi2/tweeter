@@ -8,3 +8,7 @@ header {
   background-color: #ffefd5;
   background-image: url("https://www.transparenttextures.com/patterns/blizzard.png");
 }
+
+.tweet {
+  font-size: 18px
+}
