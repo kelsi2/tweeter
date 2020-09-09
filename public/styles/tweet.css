@@ -14,18 +14,19 @@ article.tweet {
   flex-direction: row;
   justify-content: space-between;
   background-color: #f4f1ec;
+  margin-top: 0;
+  height: 100px;
 }
 
 /* User (name and image) CSS */
-article.tweet div.user {
+article.tweet .user {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  font-size: 1.5em
+  justify-content: flex-start
 }
 
 /* Tweet handle CSS, hidden unless hovered */
-article.tweet div.handle {
+article.tweet .handle {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -34,7 +35,7 @@ article.tweet div.handle {
 }
 
 /* CSS for tweet text entered by users */
-article.tweet div.tweet-text {
+article.tweet .tweet-text {
   font-size: 2em;
   border-bottom: 5px solid black;
 }
