@@ -8,9 +8,8 @@
   color: #ffffff;
   padding: 1.5em;
   font-family: 'Bungee', cursive;
-  justify-content: space-between
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%
  }
-
- /* .tweet {
-   font-family: 'Bungee', cursive;
- } */

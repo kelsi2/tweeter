@@ -17,9 +17,7 @@
   <link rel="stylesheet" href="/styles/nav.css" />
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" />
-
-  <!-- External JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/styles/tweet.css" />
 
 </head>
 
@@ -56,8 +54,34 @@
         </div>
       </form>
     </section>
+
+    <section class="tweet-container">
+      <article class="tweet">
+        <div class="tweet-header">
+          <div class="user">
+            <p>Newton</p>
+          </div>
+          <div class="username">
+            <p>@SirIsaac</p>
+          </div>
+        </div>
+        <div class="tweet-text">
+          <p>Tweet text</p>
+        </div>
+        <footer>
+          <div>
+            <p>time of message</p>
+          </div>
+          <div>
+            <p>Reaction icons</p>
+          </div>
+        </footer>
+      </article>
+    </section>
   </main>
 
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- App JS -->
   <script src="/scripts/client.js"></script>
   <script src="/scripts/composer-char-counter.js"></script>
