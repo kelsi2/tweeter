@@ -3,58 +3,93 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-//moment calculates the time since the tweet was created for the tweet element footer
-const moment = require("moment");
-//fromNow allows moment to calculate the time from the moment the tweet was created
-const fromNow = require("fromnow");
 
-$(document).ready(function() {
-
-  //Create HTML article for tweet post
-  const createTweetElement = tweetData => {
-    //header
-    const $header = $("<header>").addClass("tweet-header");
-    const $avatar = $("<img>", {class: "avatar", src: tweetData.user.avatars});
-    const $name = $("<h2>", {class: "name"}).text(tweetData.user.name);
-    const $handle = $("<p>", {class: "handle"}).text(tweetData.user.handle);
-    $header.append($avatar, $name, $handle);
-
-    //body
-    const $tweetText = $("<div>", {class: "tweet-text"}).text(tweetData.content.text);
-
-    //footer
-    const $footer = $("<footer>").addClass("tweet-footer");
-    const $time = $("<div>", class {"post-date";}).text(tweetData.created_at);
-    // const $count = $("<span>", {class: "like-count"}).text(tweet.likes.length);
-    // const $like = $("<img>", {class: "like-tweet clickable hide"});
-    // const $span = $("<span>", {class: "like-text"}).text("likes");
-    $footer.append($time);
-
-    //create article
-    const $tweet = $("<article>");
-    $tweet.append($header, $tweetText, $footer);
-    return $tweet;
-  };
-
-
-
-  // Test / driver code (temporary). Eventually will get this from the server.
-  const tweetData = {
+const data = [
+  {
     "user": {
       "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
       "handle": "@SirIsaac"
     },
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
     "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
+    },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+];
+
+$(document).ready(function() {
+  // const createTweetElement = tweetData => {
+  //   //header
+  //   const $header = $("<header>").addClass("tweet-header");
+  //   const $avatar = $("<img>", {class: "avatar", src: tweetData.user.avatars});
+  //   const $user = $("<h2>", {class: "user"}).text(tweetData.user.name);
+  //   const $handle = $("<p>", {class: "handle"}).text(tweetData.user.handle);
+  //   $header.append($avatar, $user, $handle);
+
+  //   //body
+  //   const $tweetText = $("<div>", {class: "tweet-text"}).text(tweetData.content.text);
+
+  //   //footer
+  //   const $footer = $("<footer>").addClass("tweet-footer");
+  //   const $time = $("<div>", class {"post-date";}).text(tweetData.created_at);
+  //   // const $count = $("<span>", {class: "like-count"}).text(tweet.likes.length);
+  //   // const $like = $("<img>", {class: "like-tweet clickable hide"});
+  //   // const $span = $("<span>", {class: "like-text"}).text("likes");
+  //   $footer.append($time);
+
+  //   //create article
+  //   const $tweet = $(`<article class="tweet">Hello world</article>`);
+  //   $tweet.append($header, $tweetText, $footer);
+  //   return $tweet;
+  // };
+
+  const createTweetElement = (tweet) => {
+    const $tweet = $(`<article class="tweet">Hello world</article>`);
+    const htmlStr = `<article class="tweet">
+      <header class="tweet-header">
+          <div class="user">
+            <img
+              src="${tweet.user.avatars}"
+              alt="avatar"
+            />
+            <span>${tweet.user.name}</span>
+          </div>
+          <div class="handle">${tweet.user.handle}</div>
+        </header>
+        <div class="tweet-text">
+          ${tweet.content.text}
+        </div>
+        <footer class="tweet-footer">
+          <div class="post-date">${tweet.created_at}</div>
+          <span class="social icons">
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </span>
+        </footer>`;
+    $tweet.append(htmlStr);
+    return $tweet;
   };
 
-  const $tweet = createTweetElement(tweetData);
-
-  // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.  
-
+  const renderTweets = (tweets) => {
+    $(".tweet-container").empty();
+    tweets.forEach(tweet => {
+      const newTweet = createTweetElement(tweet);
+      $(".tweet-container").prepend(newTweet);
+    });
+  };
+  renderTweets(data);
 });
