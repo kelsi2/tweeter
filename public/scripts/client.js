@@ -92,4 +92,22 @@ $(document).ready(function() {
     });
   };
   renderTweets(data);
+
+
+  //use AJAX to POST tweet to /tweets and load to page
+  $(".submit-tweet").submit(function(event) {
+    event.preventDefault();
+
+    //serialize new tweet form data for submission to server
+    const serializedData = $(this).serialize();
+    console.log(serializedData);
+
+    $.post({
+      url: "/tweets/",
+      data: serializedData,
+
+    }).then(() => {
+      renderTweets(data);
+    });
+  });
 });
