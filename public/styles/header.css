@@ -1,3 +1,4 @@
+/* Header CSS */
 header {
   display: flex;
   height: 400px;
@@ -10,6 +11,7 @@ header {
   margin-top: 120px
 }
 
-.tweet {
+/* Smaller font size for "a new tweet" */
+.tweet-logo {
   font-size: 18px
 }

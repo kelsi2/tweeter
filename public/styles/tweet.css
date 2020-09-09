@@ -1,10 +1,14 @@
+/* CSS for tweet thread */
+
+/* General CSS */
 article.tweet {
   margin-top: 10px;
-  padding: 0.75em;
+  padding: 0.5em;
   border: 0.25em solid;
   width: 100%
 }
 
+/* Header CSS */
 .tweet-header {
   display: flex;
   flex-direction: row;
@@ -12,6 +16,7 @@ article.tweet {
   background-color: #f4f1ec;
 }
 
+/* User (name and image) CSS */
 article.tweet div.user {
   display: flex;
   flex-direction: row;
@@ -19,7 +24,8 @@ article.tweet div.user {
   font-size: 1.5em
 }
 
-article.tweet div.username {
+/* Tweet handle CSS, hidden unless hovered */
+article.tweet div.handle {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -27,21 +33,24 @@ article.tweet div.username {
   visibility: hidden
 }
 
+/* CSS for tweet text entered by users */
 article.tweet div.tweet-text {
   font-size: 2em;
   border-bottom: 5px solid black;
 }
 
+/* Footer (time of tweet and social icons) CSS */
 footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+/* Settings for mouse hover (shadow box and visible handle */
 .tweet:hover {
   box-shadow: 12px 12px 2px 1px rgba(82, 78, 78, 0.2);
 }
 
-.tweet:hover div.username {
+.tweet:hover div.handle {
   visibility: visible;
 }

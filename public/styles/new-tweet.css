@@ -1,3 +1,6 @@
+/* CSS for new tweets */
+
+/* General CSS */
 textarea {
   background-color: #f4f1ec;
   outline: none;
@@ -8,6 +11,7 @@ textarea {
   width: 100%;
 }
 
+/* Tweet button */
 button {
   background-color: #4056A1;
   font-family: 'Bungee', cursive;
@@ -17,10 +21,12 @@ button {
   width: 100px;
 }
 
+/* New tweet text */
 .new-tweet {
   font-weight: bold;
 }
 
+/* Character counter */
 .counter {
   margin-top: 1%;
   float: right;
@@ -28,11 +34,13 @@ button {
   font-family: 'Bungee', cursive;
 }
 
+/* Form CSS */
 #tweet-text {
   border-bottom: 5px solid black;
   justify-content: left;
 }
 
+/* Turn counter red when count is less than 0 */
 .negChar {
   color: #ff0000;
 }

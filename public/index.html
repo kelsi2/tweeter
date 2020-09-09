@@ -25,7 +25,7 @@
   <!-- Top nav bar (fixed) -->
   <nav>
     <span>Tweeter!</span>
-    <div class="tweet">
+    <div class="tweet-logo">
       <span>Write <small>a new tweet</small></span>
     </div>
   </nav>
@@ -43,6 +43,8 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+
+    <!-- Create new tweet -->
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form method="POST" action="/tweets/">
@@ -55,18 +57,19 @@
       </form>
     </section>
 
+    <!-- Create tweet thread -->
     <section class="tweet-container">
       <article class="tweet">
         <div class="tweet-header">
           <div class="user">
             <p>Newton</p>
           </div>
-          <div class="username">
+          <div class="handle">
             <p>@SirIsaac</p>
           </div>
         </div>
         <div class="tweet-text">
-          <p>Tweet text</p>
+          <h3>Tweet text</h3>
         </div>
         <footer>
           <div>
