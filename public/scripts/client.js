@@ -80,6 +80,13 @@ $(document).ready(function() {
   $(".submit-tweet").submit(function(event) {
     event.preventDefault();
 
+    const textArea = $("textarea").val();
+    if (textArea === "") {
+      alert("Please enter a Tweet!");
+    } else if (textArea.length > 140) {
+      alert("Your Tweet has too many characters, please make it shorter!");
+    }
+
     //serialize new tweet form data for submission to server
     const serializedData = $(this).serialize();
 
@@ -87,7 +94,7 @@ $(document).ready(function() {
       url: "/tweets/",
       data: serializedData,
       success: () => {
-        $('.tweet-text').val("");
+        $(".tweet-text").val("");
         loadTweets();
       }
     });
