@@ -13,6 +13,7 @@ $(document).ready(function() {
       return div.innerHTML;
     };
     const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
+    const timeDelta = moment(tweet.created_at).fromNow();
     const htmlStr = `<article class="tweet">
       <header class="tweet-header">
           <div class="user">
@@ -25,7 +26,7 @@ $(document).ready(function() {
           ${safeHTML}
         </div>
         <footer class="tweet-footer">
-          <div class="post-date">${tweet.created_at}</div>
+          <div class="post-date">${timeDelta}</div>
           <span class="social-icons">
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
