@@ -12,7 +12,7 @@ article.tweet {
 .tweet-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: #f4f1ec;
   margin-top: 0;
   height: 120px;
