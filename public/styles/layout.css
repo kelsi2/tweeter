@@ -32,3 +32,36 @@ main {
   width: 90%;
   flex-direction: column;
  }
+
+/* Mobile styles */
+@media only screen {
+  nav {
+    background-color: rgb(240, 138, 138);
+    background-image: url("https://www.transparenttextures.com/patterns/blizzard.png");
+    font-size: 50%;
+  }
+  .tweet-logo {
+    font-size: 50%
+  }
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) {
+  nav {
+    background-color: #4056A1;
+    background-image: none;
+    font-size: 100%
+  }
+  header {
+    
+  }
+  .tweet-container {
+
+  }
+  
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+
+}
