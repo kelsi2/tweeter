@@ -34,7 +34,7 @@ $(document).ready(function() {
           </span>
         </footer>
         </article>`;
-    $(".tweet-container").append(htmlStr);
+    $(".tweet-container").prepend(htmlStr);
   };
 
   const renderTweets = (tweets) => {

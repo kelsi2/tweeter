@@ -31,42 +31,45 @@
     </div>
   </nav>
 
-  <!-- Header content (nav, name, and avatar) -->
-  <header>
-    <div class="avatar">
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div class="name">
-      <h2>Kelsi Proulx</h2>
-    </div>
-  </header>
-
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-
-    <!-- Create new tweet -->
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <div id="errors">
-        <div class="text-too-long-error" hidden><i class="fas fa-exclamation-triangle"></i>"Too many characters, please
-          make your tweet shorter!"</div>
-        <div class="text-too-short-error" hidden><i class="fas fa-exclamation-triangle"></i>"Please enter a tweet!"
-        </div>
+  <section class="header-and-tweet-feed">
+    <!-- Header content (name and avatar) -->
+    <header>
+      <div class="avatar">
+        <img src="/images/profile-hex.png">
       </div>
-      <form class="submit-tweet">
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
-        <div>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
+      <br>
+      <div class="name">
+        <h2>Kelsi Proulx</h2>
+      </div>
+    </header>
 
-    <!-- Create tweet thread -->
-    <section class="tweet-container">
-    </section>
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+
+      <!-- Create new tweet -->
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <div id="errors">
+          <div class="text-too-long-error" hidden><i class="fas fa-exclamation-triangle"></i>"Too many characters,
+            please
+            make your tweet shorter!"</div>
+          <div class="text-too-short-error" hidden><i class="fas fa-exclamation-triangle"></i>"Please enter a tweet!"
+          </div>
+        </div>
+        <form class="submit-tweet">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit" name="tweet-button">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+
+      <!-- Create tweet thread -->
+      <section class="tweet-container">
+      </section>
+  </section>
   </main>
 
   <!-- External JS -->

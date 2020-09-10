@@ -46,22 +46,32 @@ main {
 }
 
 /* Tablet styles */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 813px) {
   nav {
     background-color: #4056A1;
     background-image: none;
     font-size: 100%
   }
-  header {
-    
-  }
-  .tweet-container {
 
+  .header-and-tweet-feed {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px
+  }
+
+  header {
+    margin-right: 50px;
+    height: 40%;
+    width: auto
+  }
+
+  .avatar {
+    size: auto;
+    padding-top: 25px
+  }
+
+  main {
+    margin-left: 50px;
   }
   
-}
-
-/* Desktop styles */
-@media only screen and (min-width: 1024px) {
-
 }
