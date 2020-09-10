@@ -1,6 +1,6 @@
 //Create listener for character count (decrease count as characters are entered)
 $(document).ready(function() {
-  $(".new-tweet form textarea").on("keydown", function() {
+  $(".new-tweet form textarea").on("input", function() {
     const count = $(this).val().length;
     const counter = $(this).closest(".new-tweet").find(".counter");
     const maxCount = 140;
