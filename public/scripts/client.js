@@ -5,49 +5,45 @@
  */
 
 $(document).ready(function() {
-  const createTweetElement = tweet => {
-    //header
-    const $header = $("<header>").addClass("tweet-header");
-    const $avatar = $("<img>", {class: "avatar", src: tweet.user.avatars});
-    const $user = $("<h2>", {class: "user"}).text(tweet.user.name);
-    const $handle = $("<p>", {class: "handle"}).text(tweet.user.handle);
-    $header.append($avatar, $user, $handle);
+  // Create new tweet and add to feed
+  const createTweetElement = (tweet) => {
+    const escape = function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
 
-    //body
-    const $tweetText = $("<div>", {id: "tweet-text"}).text(tweet.content.text);
+    const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
 
-    //footer
-    const $footer = $("<footer>").addClass("tweet-footer");
-    const $time = $("<div>", {class: "post-date"}).text(tweet.created_at);
-    // var $div = $("<div>", {class: "footer-div"});
-    // var $count = $("<span>", {class: "like-count"}).text(tweet.likes.length);
-    // var $like = $("<img>", {class: "like-tweet clickable hide"});
-    // var $span = $("<span>", {class: "like-text"}).text("likes");
-    // $div.append($count, $span, $like);
-    $footer.append($time);
-
-    //create article
-    const $tweet = $("<article>").addClass("tweet");
-    $tweet.append($header, $tweetText, $footer);
-    return $tweet;
+    const htmlStr = `<article class="tweet">
+      <header class="tweet-header">
+          <div class="user">
+            <img src="${tweet.user.avatars}" class="avatar"/>
+            <span>${tweet.user.name}</span>
+          </div>
+          <div class="handle">${tweet.user.handle}</div>
+        </header>
+        <div class="tweet-text">
+          ${safeHTML}
+        </div>
+        <footer class="tweet-footer">
+          <div class="post-date">${tweet.created_at}</div>
+          <span class="social icons">
+            <img class="fas fa-flag"></i>
+            <img class="fas fa-retweet"></i>
+            <img class="fas fa-heart"></i>
+          </span>
+        </footer>
+        </article>`;
+    $(".tweet-container").append(htmlStr);
   };
 
   const renderTweets = (tweets) => {
     $(".tweet-container").empty();
     tweets.forEach(tweet => {
       const newTweet = createTweetElement(tweet);
+      // console.log(createTweetElement(tweet));
       $(".tweet-container").prepend(newTweet);
-    });
-  };
-
-  //receive all tweets from server and display in feed
-  const loadTweets = () => {
-    $(".tweet-container").empty();
-    $.ajax({
-      method: "GET",
-      url: "/tweets/",
-    }).then((response) => {
-      renderTweets(response);
     });
   };
 
@@ -57,22 +53,24 @@ $(document).ready(function() {
 
     //serialize new tweet form data for submission to server
     const serializedData = $(this).serialize();
+    console.log(serializedData);
 
     $.post({
       url: "/tweets/",
       data: serializedData,
-      success: () => {
-        $("#tweet-text").val("");
-        loadTweets();
-      },
-      error: () => {
-        const textArea = $("textarea").val();
-        if (textArea === "") {
-          alert("Please enter a Tweet!");
-        } else if (textArea.length > 140) {
-          alert("Your Tweet has too many characters, please make it shorter!");
-        }
-      }
     });
   });
+
+  //receive all tweets from server and display in feed
+  const loadTweets = () => {
+    $("#tweet-container").empty();
+    $.ajax({
+      method: "GET",
+      url: "/tweets/",
+    }).then((response) => {
+      // console.log(response);
+      renderTweets(response);
+    });
+  };
+  loadTweets();
 });

@@ -18,11 +18,15 @@ article.tweet {
   height: 120px;
 }
 
-/* User (name and image) CSS */
+/* User name CSS */
 article.tweet .user {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start
+}
+
+article.tweet .avatar {
+  display: flex;
+  flex-direction: row;
 }
 
 /* Tweet handle CSS, hidden unless hovered */
@@ -52,6 +56,6 @@ footer {
   box-shadow: 12px 12px 2px 1px rgba(82, 78, 78, 0.2);
 }
 
-.tweet:hover div.handle {
+.tweet:hover .handle {
   visibility: visible;
 }

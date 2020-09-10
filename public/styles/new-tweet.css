@@ -40,7 +40,7 @@ button {
   justify-content: left;
 }
 
-/* Turn counter red when count is less than 0 */
+/* Turn counter red when count is less than */
 .negChar {
   color: #ff0000;
 }
