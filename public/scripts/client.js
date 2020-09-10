@@ -29,9 +29,9 @@ $(document).ready(function() {
         <footer class="tweet-footer">
           <div class="post-date">${tweet.created_at}</div>
           <span class="social icons">
-            <img class="fas fa-flag"></i>
-            <img class="fas fa-retweet"></i>
-            <img class="fas fa-heart"></i>
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
           </span>
         </footer>
         </article>`;
