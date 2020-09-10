@@ -44,3 +44,11 @@ button {
 .negChar {
   color: #ff0000;
 }
+
+/* Styling for errors */
+#errors {
+  display: flex;
+  color: red;
+  justify-content: center;
+  padding: 20px
+}

@@ -12,9 +12,7 @@ $(document).ready(function() {
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     };
-
     const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
-
     const htmlStr = `<article class="tweet">
       <header class="tweet-header">
           <div class="user">
@@ -42,8 +40,18 @@ $(document).ready(function() {
     $(".tweet-container").empty();
     tweets.forEach(tweet => {
       const newTweet = createTweetElement(tweet);
-      // console.log(createTweetElement(tweet));
       $(".tweet-container").prepend(newTweet);
+    });
+  };
+
+  //receive all tweets from server and display in feed
+  const loadTweets = () => {
+    $("#tweet-container").empty();
+    $.ajax({
+      method: "GET",
+      url: "/tweets/",
+    }).then((response) => {
+      renderTweets(response);
     });
   };
 
@@ -55,22 +63,26 @@ $(document).ready(function() {
     const serializedData = $(this).serialize();
     console.log(serializedData);
 
-    $.post({
-      url: "/tweets/",
-      data: serializedData,
-    });
-  });
 
-  //receive all tweets from server and display in feed
-  const loadTweets = () => {
-    $("#tweet-container").empty();
-    $.ajax({
-      method: "GET",
-      url: "/tweets/",
-    }).then((response) => {
-      // console.log(response);
-      renderTweets(response);
-    });
-  };
-  loadTweets();
+    const tweetText = $("#tweet-text").val();
+    if (tweetText === "") {
+      $(".text-too-short-error").show();
+    } else if (tweetText.length > 140) {
+      $(".text-too-long-error").show();
+    } else {
+      $(".text-too-short-error").hide();
+      $(".text-too-long-error").hide();
+      $.post({
+        url: "/tweets/",
+        data: serializedData,
+        success: () => {
+          $(tweetText).val("");
+          loadTweets();
+        }
+      });
+    }
+  });
 });
+
+
+
