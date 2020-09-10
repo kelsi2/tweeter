@@ -14,7 +14,7 @@ $(document).ready(function() {
     };
     const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
     const timeDelta = moment(tweet.created_at).fromNow();
-    const htmlStr = `<article class="tweet">
+    const htmlStr = `<article class="tweet" id="tweet-box">
       <header class="tweet-header">
           <div class="user">
             <img src="${tweet.user.avatars}" class="avatar"/>
