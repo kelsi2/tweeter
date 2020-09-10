@@ -6,8 +6,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 !["On a large screen users can compose a Tweet and the layout is enlarged to reflect the screen size."](https://github.com/kelsi2/tweeter/blob/master/docs/largeScreenTweetCompose.png?raw=true)
-!["On a midsize screen the image is smaller and the tweet feed is laid out in a column beside the user profile"](https://github.com/kelsi2/tweeter/blob/master/docs/midScreenTweetFeed.png?raw=true)
+On a large screen users can compose a Tweet and the layout is enlarged to reflect the screen size.
+!["On a midsize screen the image is smaller and the tweet feed is laid out in a column beside the user profile."](https://github.com/kelsi2/tweeter/blob/master/docs/midScreenTweetFeed.png?raw=true)
+On a midsize screen the image is smaller and the tweet feed is laid out in a column beside the user profile.
 !["Finally, on a small screen users will be greeted with a small screen size and single column layout, as well as slight design changes to the header."](https://github.com/kelsi2/tweeter/blob/master/docs/smallAppScreen.png?raw=true)
+Finally, on a small screen users will be greeted with a small screen size and single column layout, as well as slight design changes to the header.
 
 ## Getting Started
 
