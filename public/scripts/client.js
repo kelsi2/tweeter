@@ -17,7 +17,7 @@ $(document).ready(function() {
       <header class="tweet-header">
           <div class="user">
             <img src="${tweet.user.avatars}" class="avatar"/>
-            <span>${tweet.user.name}</span>
+            <span class="name">${tweet.user.name}</span>
           </div>
           <div class="handle">${tweet.user.handle}</div>
         </header>
@@ -26,7 +26,7 @@ $(document).ready(function() {
         </div>
         <footer class="tweet-footer">
           <div class="post-date">${tweet.created_at}</div>
-          <span class="social icons">
+          <span class="social-icons">
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
             <i class="fas fa-heart"></i>
@@ -66,17 +66,18 @@ $(document).ready(function() {
 
     const tweetText = $("#tweet-text").val();
     if (tweetText === "") {
-      $(".text-too-short-error").show();
+      $(".text-too-short-error").slideDown();
     } else if (tweetText.length > 140) {
-      $(".text-too-long-error").show();
+      $(".text-too-long-error").slideDown();
     } else {
-      $(".text-too-short-error").hide();
-      $(".text-too-long-error").hide();
+      $(".text-too-short-error").slideUp();
+      $(".text-too-long-error").slideUp();
       $.post({
         url: "/tweets/",
         data: serializedData,
         success: () => {
-          $(tweetText).val("");
+          $("#tweet-text").val("");
+          $(".counter").text(140);
           loadTweets();
         }
       });
