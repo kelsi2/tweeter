@@ -1,6 +1,4 @@
- /*
- Nav bar styles, including logo
- */
+ /* Nav bar styles, including logo */
  nav {
   display: flex;
   height: 120px;
@@ -13,7 +11,7 @@
   width: 100%
  }
 
- /* Smaller font size for "a new tweet" */
+ /* Smaller font size for "a new tweet" in nav bar */
 .tweet-logo {
   font-size: 18px
 }

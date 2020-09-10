@@ -8,7 +8,7 @@ textarea {
   resize: none;
   border: none;
   height: 2em;
-  width: 100%;
+  width: 100%
 }
 
 /* Tweet button */
@@ -18,31 +18,31 @@ button {
   color: #ffffff;
   border: 0;
   height: 40px;
-  width: 100px;
+  width: 100px
 }
 
 /* New tweet text */
 .new-tweet {
-  font-weight: bold;
+  font-weight: bold
 }
 
-/* Character counter */
+/* Character counter CSS*/
 .counter {
   margin-top: 1%;
   float: right;
   font-size: x-large;
-  font-family: 'Bungee', cursive;
+  font-family: 'Bungee', cursive
 }
 
-/* Form CSS */
+/* Turn counter red when count is less than 140 characters */
+.negChar {
+  color: #ff0000
+}
+
+/* Tweet form CSS */
 #tweet-text {
   border-bottom: 5px solid black;
-  justify-content: left;
-}
-
-/* Turn counter red when count is less than */
-.negChar {
-  color: #ff0000;
+  justify-content: left
 }
 
 /* Styling for errors */

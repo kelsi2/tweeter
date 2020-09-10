@@ -16,24 +16,26 @@ article.tweet {
   justify-content: space-between;
   background-color: #f4f1ec;
   margin-top: 0;
-  height: 120px;
+  height: 120px
 }
 
-/* User name CSS */
+/* User name and avatar CSS */
 article.tweet .user {
   display: flex;
   flex-direction: row;
   font-size: 40px;
-  align-items: center;
+  align-items: center
 }
 
+/* User name CSS */
 article.tweet .name {
   padding-left: 10px
 }
 
+/* User avatar CSS */
 article.tweet .avatar {
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 
 /* Tweet handle CSS, hidden unless hovered */
@@ -41,32 +43,32 @@ article.tweet .handle {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  color: #c2bfbf;
+  color: #c2bfbf
 }
 
 /* CSS for tweet text entered by users */
 article.tweet .tweet-text {
   font-size: 2em;
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid black
 }
 
 /* Footer (time of tweet and social icons) CSS */
 footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
 /* Social icons in footer */
 article.tweet .social-icons {
   color:  #4056A1;
   font-size: 15px;
-  visibility: hidden;
+  visibility: hidden
 }
 
-/* Settings for mouse hover (shadow box and visible handle */
+/* Settings for mouse hover (shadow box and visible social icons) */
 .tweet:hover {
-  box-shadow: 12px 12px 2px 1px rgba(82, 78, 78, 0.2);
+  box-shadow: 12px 12px 2px 1px rgba(82, 78, 78, 0.2)
 }
 
 .tweet:hover .social-icons {

@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function() {
-  // Create new tweet and add to feed
+  // markup for new tweets
   const createTweetElement = (tweet) => {
     const escape = function(str) {
       let div = document.createElement('div');
@@ -37,8 +37,8 @@ $(document).ready(function() {
     $(".tweet-container").prepend(htmlStr);
   };
 
+  // create new tweet and add it to the feed
   const renderTweets = (tweets) => {
-    $(".tweet-container").empty();
     tweets.forEach(tweet => {
       const newTweet = createTweetElement(tweet);
       $(".tweet-container").prepend(newTweet);
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
   //receive all tweets from server and display in feed
   const loadTweets = () => {
-    $("#tweet-container").empty();
+    $(".tweet-container").empty();
     $.ajax({
       method: "GET",
       url: "/tweets/",
@@ -64,7 +64,7 @@ $(document).ready(function() {
     const serializedData = $(this).serialize();
     console.log(serializedData);
 
-
+    // create error on submission if tweet is too long or short, or post the new tweet, clear text field, update the counter to 140, and load tweets
     const tweetText = $("#tweet-text").val();
     if (tweetText === "") {
       $(".text-too-short-error").slideDown();
