@@ -69,25 +69,24 @@ $(document).ready(function() {
 
     // create error on submission if tweet is too long or short, or post the new tweet, clear text field, update the counter to 140, and load tweets
     const tweetText = $("#tweet-text").val();
+    const $error = $("#errors");
+
+
     if (tweetText === "") {
-      $(".text-too-short-error").slideDown();
+      $error.empty();
+      $error.append("<p><i class=\"fas fa-exclamation-triangle\"></i>Please enter a tweet!</p>");
+      return false;
     } else if (tweetText.length > 140) {
-      $(".text-too-long-error").slideDown();
-    } else {
-      $(".text-too-short-error").empty();
-      $(".text-too-long-error").empty();
-      $.post({
-        url: "/tweets/",
-        data: serializedData,
-        success: () => {
-          $("#tweet-text").val("");
-          $(".counter").text(140);
-          loadTweets();
-        }
-      });
+      $error.empty();
+      $error.append("<p><i class=\"fas fa-exclamation-triangle\"></i>Too many characters, please make your tweet shorter!</p>");
+      return false;
     }
+    $error.empty();
+    $.post("/tweets", serializedData)
+      .then(() => {
+        $("#tweet-text").val("");
+        $(".counter").text(140);
+        loadTweets();
+      });
   });
 });
-
-
-
