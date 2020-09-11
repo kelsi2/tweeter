@@ -30,7 +30,7 @@ main {
   display: flex;
   margin: auto;
   width: 90%;
-  flex-direction: column;
+  flex-direction: column
  }
 
 /* Mobile styles */
@@ -38,10 +38,16 @@ main {
   nav {
     background-color: rgb(240, 138, 138);
     background-image: url("https://www.transparenttextures.com/patterns/blizzard.png");
-    font-size: 50%;
+    font-size: 50%
   }
   .tweet-logo {
     font-size: 50%
+  }
+  .tweet-container {
+    overflow-wrap: break-word
+  }
+  .handle {
+    visibility: hidden;
   }
 }
 

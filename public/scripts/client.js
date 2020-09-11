@@ -5,6 +5,20 @@
  */
 
 $(document).ready(function() {
+  //receive all tweets from server and display in feed
+  const loadTweets = () => {
+    $(".tweet-container").empty();
+    $.ajax({
+      method: "GET",
+      url: "/tweets/",
+    }).then((response) => {
+      renderTweets(response);
+    });
+  };
+
+  //immediate call of loadTweets so the feed loads when page is first visited
+  loadTweets();
+
   // markup for new tweets
   const createTweetElement = (tweet) => {
     const escape = function(str) {
@@ -45,17 +59,6 @@ $(document).ready(function() {
     });
   };
 
-  //receive all tweets from server and display in feed
-  const loadTweets = () => {
-    $(".tweet-container").empty();
-    $.ajax({
-      method: "GET",
-      url: "/tweets/",
-    }).then((response) => {
-      renderTweets(response);
-    });
-  };
-
   //use AJAX to POST tweet to /tweets
   $(".submit-tweet").submit(function(event) {
     event.preventDefault();
@@ -71,8 +74,8 @@ $(document).ready(function() {
     } else if (tweetText.length > 140) {
       $(".text-too-long-error").slideDown();
     } else {
-      $(".text-too-short-error").slideUp();
-      $(".text-too-long-error").slideUp();
+      $(".text-too-short-error").empty();
+      $(".text-too-long-error").empty();
       $.post({
         url: "/tweets/",
         data: serializedData,
